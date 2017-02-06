@@ -7,10 +7,9 @@ Chat app with rooms.
 * Send emojis
 
 ## Built with
-* **Server**: Node.js, Pug templates
+* **Server**: Node.js, Express, Pug templates, SQL database
 * **Client**: Angular 2, HTML, CSS
 * Socket.io for sockets
-* SQL database for users and rooms
 
 ## Demo
 http://ilechat-test.azurewebsites.net/  
