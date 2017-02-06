@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" \"node ./bin/www\"",
+    "start": "concurrently \"tsc -w\" \"lite-server\" \"node ./bin/www\"",
     "lite": "lite-server",
     "tsc": "tsc",
     "tsc:w": "tsc -w"
