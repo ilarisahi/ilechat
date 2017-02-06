@@ -1,0 +1,135 @@
+﻿.navmenu {
+    padding-top: 50px;
+}
+
+.navbar {
+    display: block;
+    text-align: center;
+}
+
+.navbar-brand {
+    display: inline-block;
+    float: none;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: #58c1b7;
+}
+
+.navbar-toggle {
+    position: absolute;
+    height: 50px;
+    padding: 0 15px;
+    border: none;
+    border-right: 1px solid #58c1b7;
+    margin: 0;
+    background-color: #3ca79d;
+    border-radius: 0 4px 4px 0;
+}
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+    background-color: #088074;
+}
+
+.navbar-toggle .glyphicon {
+    color: #fff;
+}
+
+.container {
+    max-width: 100%;
+}
+
+.navmenu-default, .navbar-default .navbar-offcanvas {
+    background-color: #009688;
+}
+
+.navbar-default {
+    background-color: #009688;
+}
+
+.navmenu-default .navmenu-brand, .navbar-default .navbar-offcanvas .navmenu-brand {
+    color: #fff;
+}
+
+.navbar-default .navbar-brand {
+    color: #fff;
+}
+
+.navmenu-default .navmenu-nav > li > a, .navbar-default .navbar-offcanvas .navmenu-nav > li > a {
+    color: #fff;
+}
+
+.navmenu-default .navmenu-nav > li > a.active, .navbar-default .navbar-offcanvas .navmenu-nav > li > a.active, .navmenu-default .navmenu-nav > li > a.active:hover, .navbar-default .navbar-offcanvas .navmenu-nav > li > a.active:hover, .navmenu-default .navmenu-nav > li > a.active:focus, .navbar-default .navbar-offcanvas .navmenu-nav > li > a.active:focus {
+    color: #fff;
+    background-color: #76bbb5;
+}
+
+.navmenu-default .navmenu-nav > li > a:hover, .navbar-default .navbar-offcanvas .navmenu-nav > li > a:hover, .navmenu-default .navmenu-nav > li > a:focus, .navbar-default .navbar-offcanvas .navmenu-nav > li > a:focus {
+    color: #fff;
+    background-color: #4eaba2;
+}
+
+.navmenu-default .navmenu-brand:hover, .navbar-default .navbar-offcanvas .navmenu-brand:hover, .navmenu-default .navmenu-brand:focus, .navbar-default .navbar-offcanvas .navmenu-brand:focus {
+    color: #fff;
+    background-color: transparent;
+}
+
+.available-room a {
+    display: block;
+    position: relative;
+    padding: 10px 15px;
+    color: #fff;
+    text-decoration: none;
+
+}
+
+ul.navmenu-nav {
+    height: 100%;
+    display: table-row;
+}
+
+.navmenu-default-wrapper {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+.navmenu-wrapper {
+    /*max-height: 50%;*/
+    overflow-y: auto;
+}
+
+.room-menu {
+    overflow: hidden;
+}
+
+.navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
+    color: #fff;
+    background-color: transparent;
+}
+
+@media (min-width: 1px) {
+    .navbar-toggle {
+        display: block !important;
+    }
+}
+
+@media (min-width: 992px) {
+    body {
+        padding: 0 0 0 300px;
+    }
+
+    .navmenu {
+        padding-top: 0;
+    }
+
+    .navbar {
+        display: none !important; /* IE8 fix */
+    }
+}
+
+.nav-visible-class {
+    display: block !important;
+    padding-top: 0;
+    margin-top: 50px;
+}

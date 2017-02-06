@@ -1,0 +1,46 @@
+﻿<div [class.nav-visible-class]="navmenuHidden" class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm">
+    <div class="navmenu-default-wrapper">
+        <a class="navmenu-brand visible-md visible-lg">Chatapp</a>
+        <ul class="nav navmenu-nav">
+            <li>
+                <a routerLink="/rooms/new" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="navmenuHidden = false">Create new room</a>
+            </li>
+            <li>
+                <a routerLink="/rooms" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="navmenuHidden = false">ROOMS</a>
+            </li>
+            <li>
+                <a routerLink="/lul/lul" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="navmenuHidden = false">LULLUL</a>
+            </li>
+            <li>
+                <a routerLink="/lul" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="navmenuHidden = false">LUL</a>
+            </li>
+            <li>
+                <a data-toggle="collapse" data-target=".room-menu">Available rooms</a>
+            </li>
+            <li class="navmenu-wrapper">
+                <div class="available-room" *ngFor="let room of rooms">
+                    <a id="{{room.id}}" [routerLink]="['/rooms', room.id]" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="navmenuHidden = false">
+                        {{room.name}}
+                    </a>
+                </div>
+            </li>
+            <li>
+                <a>Online users</a>
+            </li>
+            <li class="navmenu-wrapper">
+                <div class="online-user" *ngFor="let user of users">
+                    <a id="{{user.id}}" href="/users/{{user.id}}">
+                        {{user.name}}
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="navbar navbar-default navbar-fixed-top hidden-md hidden-lg">
+    <button type="button" class="navbar-toggle" (click)="navmenuHidden = !navmenuHidden">
+        <span aria-hidden="true" class="glyphicon glyphicon-menu-hamburger"></span>
+    </button>
+    <a class="navbar-brand">{{mobileTitle}}</a>
+</div>
