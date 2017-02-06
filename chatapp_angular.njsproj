@@ -67,6 +67,7 @@
     <Content Include="client\types\user.type.js.map" />
     <Content Include="IISNode.yml" />
     <Content Include="client\tsconfig.json" />
+    <Content Include="Procfile" />
     <Content Include="views\angular.pug" />
     <Content Include="views\index.pug" />
     <Content Include="views\layout.pug" />

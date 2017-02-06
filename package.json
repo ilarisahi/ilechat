@@ -1,9 +1,9 @@
 {
   "name": "chatapp_angular",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "concurrently \"tsc -w\" \"lite-server\" \"node ./bin/www\"",
+    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" \"node ./bin/www\"",
     "lite": "lite-server",
     "tsc": "tsc",
     "tsc:w": "tsc -w"
@@ -57,14 +57,5 @@
     "@types/node": "^6.0.46",
     "@types/jasmine": "^2.5.36"
   },
-  "main": "app.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ilarisahi/chatapp.git"
-  },
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ilarisahi/chatapp/issues"
-  },
-  "homepage": "https://github.com/ilarisahi/chatapp#readme"
+  "main": "app.js"
 }
