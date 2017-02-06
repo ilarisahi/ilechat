@@ -13,7 +13,9 @@ Chat app with rooms.
 
 ## Demo
 http://ilechat-test.azurewebsites.net/  
-Takes a while to load if not used recently (Azure unloads it)
+Takes a while to load if not used recently (Azure unloads it)  
+**or**  
+https://arcane-anchorage-91281.herokuapp.com
 
 ## To do
 * User profile
