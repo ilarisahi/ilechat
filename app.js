@@ -6,7 +6,6 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-var connection = require('tedious').Connection;
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var auth = require('passport-local-authenticate');
@@ -16,19 +15,19 @@ var index = require('./routes/index');
 
 var app = express();
 
-// view engine setup
+// View engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-// uncomment after placing your favicon in /public
+// Uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 
-//body parser middleware
+// Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-//session and passport
+// Session and passport middlewares
 app.use(session({
     secret: 'ebin make lul doge',
     resave: false,
@@ -37,13 +36,15 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-//set static folder
+// Set static folders
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
 app.use(express.static(path.join(__dirname, 'client')));
 
+// Set routes
 app.use('/', index);
 
+// Passport functions for user authentication
 passport.serializeUser(function (user, done) {
     done(null, user.id);
 });
@@ -59,6 +60,7 @@ passport.deserializeUser(function (id, done) {
     });
 });
 
+// Local strategy for verifying user via Passport
 passport.use('local', new LocalStrategy({
     usernameField: 'username',
     passwordField: 'password'
@@ -74,21 +76,26 @@ passport.use('local', new LocalStrategy({
     });
 }));
 
+// Setting app port
 app.set('port', process.env.PORT || 3000);
 
 var server = app.listen(app.get('port'), function () {
     debug('Express server listening on port ' + server.address().port);
 });
 
+// Initializing sockets
 var io = require('socket.io').listen(server);
 
+// Socket functions
 io.on('connection', function (socket) {
     console.log('a user connected');
 
+    // Set socket's username parameter
     socket.on('joinChat', function (data) {
         socket.username = data.uname;
     });
 
+    // When joining to room, leave from other rooms
     socket.on('joinRoom', function (data) {
         console.log('connecting ' + data.uname + ' to ' + data.rname);
         for (var r in socket.rooms) {
@@ -97,6 +104,7 @@ io.on('connection', function (socket) {
         socket.join(data.rname);
     });
 
+    // Emit incoming messages to other users
     socket.on('chat message', function (msg) {
         console.log('message: ' + msg.message);
         if (msg.room) {
@@ -107,6 +115,7 @@ io.on('connection', function (socket) {
     });
 });
 
+// Get list of online users
 exports.getOnlineUsers = function () {
     var uList = [];
     var users = io.of('/').connected;
@@ -118,6 +127,7 @@ exports.getOnlineUsers = function () {
     return uList;
 }
 
+//Get socket's user info
 exports.getSocket = function (id, cb) {
     var users = io.of('/').connected;
 

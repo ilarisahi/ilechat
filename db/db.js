@@ -10,6 +10,7 @@ sql.connect(config, function (err) {
     }
 });
 
+// Get user id from database
 var checkUser = function (name, cb) {
     var request = new sql.Request();
     console.log('checking user');
@@ -22,12 +23,15 @@ var checkUser = function (name, cb) {
     });
 }
 
+// User creation
 exports.createUser = function (username, password, cb) {
     console.log('creating user');
     checkUser(username, function (err, id) {
         if (err) {
             console.log(err);
             console.log('getting through checkuser');
+
+            // Hash password for database
             auth.hash(password, function (err, hashed) {
                 var dt = datetime.create();
                 dt = dt.format('m/d/Y H:M:S');
@@ -36,6 +40,8 @@ exports.createUser = function (username, password, cb) {
                     if (err) {
                         cb(err)
                     } else {
+
+                        // Return created user
                         var user = {
                             id: recordset[0].id,
                             username: username,
@@ -52,17 +58,20 @@ exports.createUser = function (username, password, cb) {
     });
 }
 
+// User login
 exports.getUsr = function (username, password, cb) {
-    console.log('getting user');
     var request = new sql.Request();
     request.query("SELECT * FROM users WHERE username = '" + username + "'", function (err, recordset) {
         if (err || !recordset.length) {
             cb('user not found');
         } else {
+
+            // Verify password
             var hashed = { salt: recordset[0].salt, hash: recordset[0].hash };
             auth.verify(password, hashed, function (err, verified) {
                 if (verified) {
-                    console.log('user verified');
+
+                    // Return user and update last_login field
                     var user = {
                         id: recordset[0].id,
                         username: recordset[0].username,
@@ -89,6 +98,7 @@ exports.getUsr = function (username, password, cb) {
     });
 }
 
+// Get user data by user id
 exports.getUsrData = function (id, cb) {
     var request = new sql.Request();
     request.query("SELECT * FROM users WHERE id = '" + id + "'", function (err, recordset) {
@@ -106,6 +116,7 @@ exports.getUsrData = function (id, cb) {
     });
 }
 
+// Get room data by room id
 exports.getRoom = function (id, cb) {
     var request = new sql.Request();
     request.query("SELECT * FROM rooms WHERE id ='" + id + "'", function (err, recordset) {
@@ -123,6 +134,7 @@ exports.getRoom = function (id, cb) {
     });
 }
 
+// Get all rooms from database
 exports.getAllRooms = function (cb) {
     console.log('getting all rooms');
     var request = new sql.Request();
@@ -135,6 +147,7 @@ exports.getAllRooms = function (cb) {
     });
 }
 
+// Room creation
 exports.createRoom = function (name, desc, privateR, cb) {
     console.log('creating room');
     console.log(name + desc);

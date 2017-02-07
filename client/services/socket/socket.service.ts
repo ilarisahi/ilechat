@@ -7,16 +7,19 @@ import * as io from 'socket.io-client';
 
 @Injectable()
 export class SocketService {
+    // Initialize client socket.io
     socket: any = io();
 
     constructor() {
         console.log('socket service initialized');
     }    
 
+    // Emit chat message
     sendMessage(message: any) {
         this.socket.emit('chat message', message);
     }
 
+    // Emit room join
     joinRoom(room: number) {
         this.socket.emit('joinRoom', { rname: room, uname: 'lul' });
     }

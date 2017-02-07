@@ -10,11 +10,13 @@ export class ChatService {
         console.log('Chat service initialized');
     }
 
+    // Get room details from api
     getRoomDetails(id: number) {
         return this.http.get('/api/get-room-details/' + id)
             .map(res => res.json());
     }
 
+    // Get room details from api as Promise
     getRoomDetailsResolve(id: number): Promise<Room> {
         return this.http.get('/api/get-room-details/' + id)
             .toPromise()

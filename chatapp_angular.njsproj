@@ -53,10 +53,8 @@
     <Content Include="client\components\new-room\new-room.component.js.map" />
     <Content Include="client\components\not-found\not-found.component.html" />
     <Content Include="client\components\not-found\not-found.component.js.map" />
-    <Content Include="client\directives\contenteditable.directive.js.map" />
     <Content Include="client\main.js.map" />
     <Content Include="client\resolvers\room.resolve.js.map" />
-    <Content Include="client\resolvers\socket.resolve.js.map" />
     <Content Include="client\resolvers\user.resolve.js.map" />
     <Content Include="client\services\chat\chat.service.js.map" />
     <Content Include="client\services\navbar\navbar.service.js.map" />
@@ -88,7 +86,6 @@
     <Folder Include="client\components\navbar\" />
     <Folder Include="client\components\new-room\" />
     <Folder Include="client\components\not-found\" />
-    <Folder Include="client\directives\" />
     <Folder Include="client\resolvers\" />
     <Folder Include="client\services\" />
     <Folder Include="client\services\chat\" />
@@ -113,10 +110,8 @@
     <Compile Include="client\components\navbar\navbar.component.js" />
     <Compile Include="client\components\new-room\new-room.component.js" />
     <Compile Include="client\components\not-found\not-found.component.js" />
-    <Compile Include="client\directives\contenteditable.directive.js" />
     <Compile Include="client\main.js" />
     <Compile Include="client\resolvers\room.resolve.js" />
-    <Compile Include="client\resolvers\socket.resolve.js" />
     <Compile Include="client\resolvers\user.resolve.js" />
     <Compile Include="client\services\chat\chat.service.js" />
     <Compile Include="client\services\navbar\navbar.service.js" />
@@ -142,10 +137,8 @@
     <TypeScriptCompile Include="client\components\navbar\navbar.component.ts" />
     <TypeScriptCompile Include="client\components\new-room\new-room.component.ts" />
     <TypeScriptCompile Include="client\components\not-found\not-found.component.ts" />
-    <TypeScriptCompile Include="client\directives\contenteditable.directive.ts" />
     <TypeScriptCompile Include="client\main.ts" />
     <TypeScriptCompile Include="client\resolvers\room.resolve.ts" />
-    <TypeScriptCompile Include="client\resolvers\socket.resolve.ts" />
     <TypeScriptCompile Include="client\resolvers\user.resolve.ts" />
     <TypeScriptCompile Include="client\services\chat\chat.service.ts" />
     <TypeScriptCompile Include="client\services\navbar\navbar.service.ts" />

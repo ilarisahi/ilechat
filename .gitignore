@@ -23,6 +23,21 @@ bld/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
+*.component.js
+*.component.js.map
+*.module.js
+*.module.js.map
+*.routing.js
+*.routing.js.map
+*.type.js
+*.type.js.map
+*.resolve.js
+*.resolve.js.map
+*.service.js
+*.service.js.map
+main.js
+main.js.map
+
 
 # Visual Studio 2015 cache/options directory
 .vs/

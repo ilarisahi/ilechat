@@ -11,22 +11,9 @@ export class UserService {
 
     constructor(private http: Http) {
         console.log('user service initialized');
-        // this.getUser();
     }
 
-    /*private getUserP(): Promise<User> {
-        console.log('getting user');
-        return this.http.get('/api/get-user-details')
-            .map(res => res.json())
-            .map(user => {
-                    return user;
-                }).toPromise();
-    }
-
-    getUser() {
-        this.getUserP().then(user => this.user = user);
-    }*/
-
+    // Get user details from api
     getUserResolve(): Promise<User> {
         return this.http.get('/api/get-user-details')
             .toPromise()

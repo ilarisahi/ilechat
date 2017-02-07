@@ -6,18 +6,18 @@ var passport = require('passport');
 var auth = require('passport-local-authenticate');
 var app = require('../app');
 
-/* GET home page. */
+// GET home page and check if user is logged in
+// if is -> go to Angular app
 router.get('/', function (req, res) {
     if (req.user) {
         res.render('angular', { user: req.user });
     } else {
-        console.log('i am here at root');
         var session = req.session;
-        console.log(session);
-        res.render('index', { title: 'Express', user: req.user });
+        res.render('index', { title: 'ILECHAT', user: req.user });
     }
 });
 
+// Handle registration POST
 router.post('/register', function (req, res) {
     var uname = req.body.username;
     var pword = req.body.password;
@@ -36,18 +36,20 @@ router.post('/register', function (req, res) {
     });   
 });
 
+// Handle login POST with Passport authentication
 router.post('/login', passport.authenticate('local'), function (req, res) {
     console.log(req.user);
     res.send({ result: "success" });
 });
 
+// Logout user
 router.get('/logout', function (req, res) {
     req.logout();
     res.redirect('/');
 });
 
+// Api function for getting all rooms from database
 router.get('/api/get-rooms', function (req, res, next) {
-    console.log('getting rooms from api');
     if (req.user) {
         console.log(req.user);
         db.getAllRooms(function (err, rooms) {
@@ -61,11 +63,12 @@ router.get('/api/get-rooms', function (req, res, next) {
     }
 });
 
+// Api function for getting user details
 router.get('/api/get-user-details', function (req, res, next) {
-    console.log('got user from angular request');
     res.json(req.user);
 });
 
+// Api function for getting specific room info
 router.get('/api/get-room-details/:id', function (req, res, next) {
     console.log(req.params.id);
 
@@ -79,6 +82,7 @@ router.get('/api/get-room-details/:id', function (req, res, next) {
     });
 });
 
+// Api function for creating room
 router.post('/api/newroom', function (req, res) {
     var name = req.body.name;
     var desc = req.body.desc;
@@ -96,12 +100,11 @@ router.post('/api/newroom', function (req, res) {
     });
 });
 
-
+// Catch all other routes and render Angular app
 router.get('*', function (req, res, next) {
     if (req.user) {
         res.render('angular', { user: req.user });
     } else {
-        console.log('i am here at root');
         var session = req.session;
         console.log(session);
         res.render('index', { title: 'Express' });

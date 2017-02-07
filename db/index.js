@@ -1,1 +1,2 @@
-﻿exports.connection = require('./db');
+﻿// Handle export
+exports.connection = require('./db');

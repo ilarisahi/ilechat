@@ -26,6 +26,7 @@ const appRoutes: Routes = [
     {
         path: 'rooms/:id',
         component: ChatComponent,
+        // Fetch room and user data before loading
         resolve: {
             room: RoomResolve,
             user: UserResolve

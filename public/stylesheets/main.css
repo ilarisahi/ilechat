@@ -1,4 +1,9 @@
-﻿html, body {
+﻿/** 
+* General styling
+*
+*/
+
+html, body {
     position: relative;
     height: 100%;
 }

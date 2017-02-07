@@ -18,6 +18,7 @@ export class NavbarComponent {
     constructor(private navbarService: NavbarService, private _eref: ElementRef) { }
 
     ngOnInit() {
+        // Get room array from service
         this.navbarService.rooms.subscribe(rooms => {
             this.rooms = rooms;
         });
@@ -25,6 +26,7 @@ export class NavbarComponent {
         this.mobileTitle = 'ILECHAT';
     }
 
+    // Hide menu if user clicks outside it
     onClick(event: any) {
         if (!this._eref.nativeElement.contains(event.target))
             this.navmenuHidden = false;

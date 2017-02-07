@@ -1,4 +1,5 @@
-﻿$("#login-submit").click(function (e) {
+﻿// Handles login
+$("#login-submit").click(function (e) {
     e.preventDefault();
     var $form = $(this);
 
@@ -26,6 +27,8 @@
     });
 });
 
+
+// Handles registration
 $("#register-submit").click(function (e) {
     e.preventDefault();
     var $form = $(this);

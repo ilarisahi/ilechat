@@ -19,11 +19,10 @@ import { ChatComponent } from './components/chat/chat.component';
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { NewRoomComponent } from './components/new-room/new-room.component';
-import { ContenteditableModel } from './directives/contenteditable.directive';
 
 @NgModule({
   imports:      [ BrowserModule, HttpModule, MaterialModule.forRoot(), TabsModule.forRoot(), routing, FormsModule ],
-  declarations: [ AppComponent, NavbarComponent, ChatComponent, HomeComponent, NotFoundComponent, ContenteditableModel, NewRoomComponent ],
+  declarations: [ AppComponent, NavbarComponent, ChatComponent, HomeComponent, NotFoundComponent, NewRoomComponent ],
   bootstrap: [ AppComponent ],
   providers: [ChatService, NavbarService, UserService, SocketService, RoomResolve, UserResolve]
 })

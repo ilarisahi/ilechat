@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class NavbarService {
+    // Subscribable room list so that new rooms can be added dynamically to menu
     rooms: Observable<Room[]>;
     private _rooms: BehaviorSubject<Room[]>;
     private roomStore: {
@@ -21,6 +22,7 @@ export class NavbarService {
         this.rooms = this._rooms.asObservable();
     }
 
+    // Get all rooms from api
     getRooms() {
         this.http.get('/api/get-rooms')
             .map(res => res.json()).subscribe(rooms => {
@@ -29,6 +31,7 @@ export class NavbarService {
         });
     }
 
+    // Add room to service's Observable array
     addRoom(room: Room) {
         this.roomStore.rooms.push(room);
         this._rooms.next(Object.assign({}, this.roomStore).rooms);

@@ -23,6 +23,7 @@ export class NewRoomComponent {
         this.model = { id: null, name: '', desc: '', created: date, private: false };
     }
 
+    // Submit new room to api and redirect user on success
     onSubmit() {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
