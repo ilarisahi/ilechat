@@ -138,3 +138,12 @@ ul.navmenu-nav {
     padding-top: 0;
     margin-top: 50px;
 }
+
+.available-room a.active {
+    border-right: 5px #75c79e solid;
+    background-color: black;
+}
+
+.available-room a:not(.active):hover {
+    background-color: black;
+}
