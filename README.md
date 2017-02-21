@@ -12,10 +12,8 @@ Chat app with rooms.
 * Socket.io for sockets
 
 ## Demo
-http://ilechat-test.azurewebsites.net/  
-Takes a while to load if not used recently (Azure unloads it)  
-**or**  
-https://arcane-anchorage-91281.herokuapp.com
+https://arcane-anchorage-91281.herokuapp.com  
+Takes a while to load if not used recently as Heroku unloads the unused app
 
 ## To do
 * User profile
