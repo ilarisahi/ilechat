@@ -12,7 +12,7 @@ Chat app with rooms.
 * Socket.io for sockets
 
 ## Demo
-https://arcane-anchorage-91281.herokuapp.com  
+http://sahi.gq/chat  
 Takes a while to load if not used recently as Heroku unloads the unused app
 
 ## To do
