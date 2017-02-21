@@ -92,6 +92,7 @@ router.post('/api/newroom', function (req, res) {
 
     db.createRoom(name, desc, privateR, function (err, room) {
         if (err) {
+            console.log(err);
             res.status(500).send({"error": err});
         } else {
             console.log(room);

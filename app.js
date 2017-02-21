@@ -71,6 +71,7 @@ passport.use('local', new LocalStrategy({
             done('user does not exist');
         } else {
             console.log("user exists");
+            console.log(user);
             done(null, user);
         }
     });
